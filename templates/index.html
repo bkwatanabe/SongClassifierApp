@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Genre Classifier</title>
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Genre Classifier</h1>
+
+<form>
+    <label about="file_input">Upload mp3 here:</label>
+        {# Currently only accepting mpeg files #}
+    <input type = "file" name = "file_input" id="file_input" accept="audio/mpeg" required/>
+    <input type = "submit"/>
+</form>
+
+{# Log success/failure messages for users #}
+<div id="log"></div>
+
+<script src="js/index.js" type="text/javascript"></script>
+</body>
+</html>
