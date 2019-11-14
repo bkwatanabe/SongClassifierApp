@@ -9,10 +9,15 @@
 <h1>Genre Classifier</h1>
 
 <form>
-    <label about="file_input">Upload mp3 here:</label>
-        {# Currently only accepting mpeg files #}
-    <input type = "file" name = "file_input" id="file_input" accept="audio/mpeg" required/>
-    <input type = "submit"/>
+    <div> Upload your song here:</div>
+    <div id="warning" hidden> Warning! .mp3 file will take a while to process.</div>
+    <label about= "title">Title:</label>
+    <input type = "text" name= "title" required/>
+    <label about= "artist">Artist:</label>
+    <input type = "text" name= "artist" required/>
+    <label about= "file_input">Select .wav/.mp3 file:</label>
+    <input type = "file" name = "file_input" id="file_input" accept="audio/mpeg, audio/wav" required/>
+    <input type = "submit" id="submit"/>
 </form>
 
 {# Log success/failure messages for users #}

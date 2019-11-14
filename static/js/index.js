@@ -1,5 +1,17 @@
 const log = $("#log");
 const file_input = $("#file_input");
+const submit = $("#submit");
+const warning = $("#warning");
+
+file_input.on("change", function(){
+    var nameSplit = file_input.val().split(".");
+    if(nameSplit[nameSplit.length - 1].toLowerCase() == "mp3") {
+        warning.prop("hidden", false);
+    }
+    else {
+        warning.prop("hidden", true);
+    }
+});
 
 // Whenever this form has a submit event,
 $("form").submit(function (event) {
@@ -20,13 +32,18 @@ $("form").submit(function (event) {
         processData: false,
         contentType: false,
         type: 'POST',
+        beforeSend: function() {
+            log.text(fileData.name + " is being uploaded. Please wait.");
+            submit.prop("disabled", true);
+        },
         success: function(response){
             console.log(response);
             log.text(fileData.name + " was uploaded successfully.");
-            file_input.val(null);
+            window.location.replace(window.location.href + "results");
         },
         error: function(){
             log.text("The file upload failed.");
+            submit.prop("disabled", false);
         }
     });
 });
